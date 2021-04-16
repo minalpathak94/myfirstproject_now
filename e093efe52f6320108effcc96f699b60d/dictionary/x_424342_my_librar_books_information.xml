@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element label="Books Information" max_length="40" name="x_424342_my_librar_books_information" type="collection">
+        <element attributes="ignore_filter_on_new=true" default="javascript:global.getNextObjNumberPadded();" label="Number" max_length="40" name="number" type="string"/>
+        <element attributes="encode_utf8=false" label="Author" max_length="32" name="u_bk_author" reference="sys_user" type="reference"/>
+        <element attributes="edge_encryption_enabled=true" label="Book Name" mandatory="true" max_length="40" name="u_bk_name" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Book Number" max_length="40" name="u_bk_num" read_only="true" type="string"/>
+        <element attributes="omit_sys_original=true,serializer=com.glide.script.PriceXMLSerializer" label="Price" max_length="20" name="u_bk_price" type="price"/>
+        <element attributes="edge_encryption_enabled=true" label="Publication" max_length="40" name="u_bk_publication" type="string"/>
+        <element attributes="edge_encryption_enabled=true" choice="1" label="Type" max_length="40" name="u_bk_type" type="string">
+            <choice>
+                <element inactive_on_update="false" label="Fiction" sequence="0" value="fiction"/>
+                <element inactive_on_update="false" label="Autobiography" sequence="1" value="autobiography"/>
+                <element inactive_on_update="false" label="Phylosophical" sequence="2" value="phylosophical"/>
+            </choice>
+        </element>
+        <element attributes="edge_encryption_enabled=true" label="Manufacturing Date" max_length="40" name="u_mfg_date" type="glide_date"/>
+        <element label="No. of pages" max_length="40" name="u_pages_no" type="integer"/>
+        <element label="Soft Copy" max_length="40" name="u_soft_copy" type="boolean"/>
+        <index name="index">
+            <element name="u_bk_author"/>
+        </index>
+    </element>
+</database>
